@@ -1,0 +1,150 @@
+fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=fiotest --filename=fio_test --bs=4k --iodepth=64 --size=4GB --readwrite=randrw --rwmixread=90
+
+fiotest: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=64
+fio-3.19
+Starting 1 process
+Jobs: 1 (f=1): [m(1)][100.0%][r=35.2MiB/s,w=3956KiB/s][r=9010,w=989 IOPS][eta 00m:00s]
+fiotest: (groupid=0, jobs=1): err= 0: pid=6099: Tue Jan 16 03:51:36 2024
+  read: IOPS=9084, BW=35.5MiB/s (37.2MB/s)(3686MiB/103860msec)
+   bw (  KiB/s): min=35512, max=91629, per=99.92%, avg=36307.81, stdev=3867.57, samples=207
+   iops        : min= 8878, max=22907, avg=9076.95, stdev=966.87, samples=207
+  write: IOPS=1011, BW=4046KiB/s (4143kB/s)(410MiB/103860msec); 0 zone resets
+   bw (  KiB/s): min= 3592, max=10098, per=99.94%, avg=4042.60, stdev=455.90, samples=207
+   iops        : min=  898, max= 2524, avg=1010.65, stdev=113.94, samples=207
+  cpu          : usr=1.70%, sys=6.52%, ctx=498668, majf=0, minf=7
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=943531,105045,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: bw=35.5MiB/s (37.2MB/s), 35.5MiB/s-35.5MiB/s (37.2MB/s-37.2MB/s), io=3686MiB (3865MB), run=103860-103860msec
+  WRITE: bw=4046KiB/s (4143kB/s), 4046KiB/s-4046KiB/s (4143kB/s-4143kB/s), io=410MiB (430MB), run=103860-103860msec
+
+Disk stats (read/write):
+  nvme2n1: ios=942855/104983, merge=0/0, ticks=5773293/654862, in_queue=6428155, util=100.00%
+
+
+fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=fiotest --filename=fio_test --bs=4k --iodepth=64 --size=4GB --readwrite=randread
+
+fiotest: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=64
+fio-3.19
+Starting 1 process
+Jobs: 1 (f=1): [r(1)][100.0%][r=39.1MiB/s][r=10.0k IOPS][eta 00m:00s]
+fiotest: (groupid=0, jobs=1): err= 0: pid=6105: Tue Jan 16 03:54:22 2024
+  read: IOPS=10.1k, BW=39.4MiB/s (41.4MB/s)(4096MiB/103859msec)
+   bw (  KiB/s): min=39992, max=101716, per=99.92%, avg=40352.64, stdev=4285.84, samples=207
+   iops        : min= 9998, max=25429, avg=10088.16, stdev=1071.46, samples=207
+  cpu          : usr=1.14%, sys=5.19%, ctx=149722, majf=0, minf=70
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=1048576,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: bw=39.4MiB/s (41.4MB/s), 39.4MiB/s-39.4MiB/s (41.4MB/s-41.4MB/s), io=4096MiB (4295MB), run=103859-103859msec
+
+Disk stats (read/write):
+  nvme2n1: ios=1047894/2, merge=0/0, ticks=6229285/16, in_queue=6229300, util=100.00%
+
+
+fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=fiotest --filename=fio_test --bs=4k --iodepth=64 --size=4GB --readwrite=randwrite
+
+fiotest: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=64
+fio-3.19
+Starting 1 process
+Jobs: 1 (f=1): [w(1)][100.0%][w=39.1MiB/s][w=10.0k IOPS][eta 00m:00s]
+fiotest: (groupid=0, jobs=1): err= 0: pid=6174: Tue Jan 16 03:56:54 2024
+  write: IOPS=10.1k, BW=39.4MiB/s (41.4MB/s)(4096MiB/103860msec); 0 zone resets
+   bw (  KiB/s): min=40008, max=101703, per=99.91%, avg=40349.64, stdev=4285.08, samples=207
+   iops        : min=10002, max=25425, avg=10087.41, stdev=1071.22, samples=207
+  cpu          : usr=2.21%, sys=7.34%, ctx=808428, majf=0, minf=6
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=0,1048576,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+  WRITE: bw=39.4MiB/s (41.4MB/s), 39.4MiB/s-39.4MiB/s (41.4MB/s-41.4MB/s), io=4096MiB (4295MB), run=103860-103860msec
+
+Disk stats (read/write):
+  nvme2n1: ios=0/1047816, merge=0/0, ticks=0/6579254, in_queue=6579254, util=100.00%
+
+
+fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=fiotest --filename=fio_test --bs=64k --iodepth=64 --size=4GB --readwrite=randrw --rwmixread=90
+
+fiotest: (g=0): rw=randrw, bs=(R) 64.0KiB-64.0KiB, (W) 64.0KiB-64.0KiB, (T) 64.0KiB-64.0KiB, ioengine=libaio, iodepth=64
+fio-3.19
+Starting 1 process
+Jobs: 1 (f=1): [m(1)][100.0%][r=226MiB/s,w=24.2MiB/s][r=3613,w=387 IOPS][eta 00m:00s]
+fiotest: (groupid=0, jobs=1): err= 0: pid=6188: Tue Jan 16 03:59:03 2024
+  read: IOPS=3834, BW=240MiB/s (251MB/s)(3685MiB/15376msec)
+   bw (  KiB/s): min=228480, max=586188, per=98.88%, avg=242635.07, stdev=64901.38, samples=30
+   iops        : min= 3570, max= 9159, avg=3791.17, stdev=1014.05, samples=30
+  write: IOPS=427, BW=26.7MiB/s (28.0MB/s)(411MiB/15376msec); 0 zone resets
+   bw (  KiB/s): min=23168, max=65483, per=98.64%, avg=27014.77, stdev=7397.20, samples=30
+   iops        : min=  362, max= 1023, avg=422.10, stdev=115.55, samples=30
+  cpu          : usr=0.84%, sys=3.86%, ctx=33621, majf=0, minf=6
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=99.9%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=58956,6580,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: bw=240MiB/s (251MB/s), 240MiB/s-240MiB/s (251MB/s-251MB/s), io=3685MiB (3864MB), run=15376-15376msec
+  WRITE: bw=26.7MiB/s (28.0MB/s), 26.7MiB/s-26.7MiB/s (28.0MB/s-28.0MB/s), io=411MiB (431MB), run=15376-15376msec
+
+Disk stats (read/write):
+  nvme2n1: ios=58217/6482, merge=0/0, ticks=843130/94585, in_queue=937716, util=99.46%
+
+
+fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=fiotest --filename=fio_test --bs=64k --iodepth=64 --size=4GB --readwrite=randread
+
+fiotest: (g=0): rw=randread, bs=(R) 64.0KiB-64.0KiB, (W) 64.0KiB-64.0KiB, (T) 64.0KiB-64.0KiB, ioengine=libaio, iodepth=64
+fio-3.19
+Starting 1 process
+Jobs: 1 (f=1): [r(1)][100.0%][r=251MiB/s][r=4008 IOPS][eta 00m:00s]
+fiotest: (groupid=0, jobs=1): err= 0: pid=6279: Tue Jan 16 04:10:06 2024
+  read: IOPS=4261, BW=266MiB/s (279MB/s)(4096MiB/15377msec)
+   bw (  KiB/s): min=255872, max=650962, per=98.86%, avg=269651.80, stdev=72019.10, samples=30
+   iops        : min= 3998, max=10171, avg=4213.30, stdev=1125.25, samples=30
+  cpu          : usr=0.64%, sys=3.21%, ctx=9971, majf=0, minf=519
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=99.9%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=65536,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: bw=266MiB/s (279MB/s), 266MiB/s-266MiB/s (279MB/s-279MB/s), io=4096MiB (4295MB), run=15377-15377msec
+
+Disk stats (read/write):
+  nvme2n1: ios=64708/0, merge=0/0, ticks=910137/0, in_queue=910138, util=99.49%
+
+
+fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=fiotest --filename=fio_test --bs=64k --iodepth=64 --size=4GB --readwrite=randwrite
+
+fiotest: (g=0): rw=randwrite, bs=(R) 64.0KiB-64.0KiB, (W) 64.0KiB-64.0KiB, (T) 64.0KiB-64.0KiB, ioengine=libaio, iodepth=64
+fio-3.19
+Starting 1 process
+Jobs: 1 (f=1): [w(1)][100.0%][w=250MiB/s][w=4000 IOPS][eta 00m:00s]
+fiotest: (groupid=0, jobs=1): err= 0: pid=6289: Tue Jan 16 04:11:53 2024
+  write: IOPS=4261, BW=266MiB/s (279MB/s)(4096MiB/15377msec); 0 zone resets
+   bw (  KiB/s): min=255616, max=651375, per=98.86%, avg=269648.50, stdev=72097.24, samples=30
+   iops        : min= 3994, max=10177, avg=4213.23, stdev=1126.39, samples=30
+  cpu          : usr=1.59%, sys=4.89%, ctx=55769, majf=0, minf=6
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=99.9%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=0,65536,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+  WRITE: bw=266MiB/s (279MB/s), 266MiB/s-266MiB/s (279MB/s-279MB/s), io=4096MiB (4295MB), run=15377-15377msec
+
+Disk stats (read/write):
+  nvme2n1: ios=0/64696, merge=0/0, ticks=0/961884, in_queue=961885, util=99.48%
